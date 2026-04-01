@@ -1,0 +1,61 @@
+/* Base app styling */
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont;
+  background-color: #1b0d2c; /* deep dark purple */
+  color: #f0f0f0; /* light text */
+  padding: 20px;
+  margin: 0;
+}
+
+/* Headings */
+h1, h2 {
+  text-align: center;
+  color: #f0f0f0;
+}
+
+/* Inputs */
+input, select {
+  width: 100%;
+  padding: 12px;
+  margin-top: 10px;
+  border-radius: 10px;
+  border: none;
+  background-color: #2a1b3d; /* dark purple input */
+  color: #f0f0f0;
+}
+
+/* Buttons */
+button {
+  width: 100%;
+  padding: 12px;
+  margin-top: 12px;
+  border-radius: 12px;
+  border: none;
+  background-color: #8b00ff; /* neon purple button */
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* Cards (home stats) */
+.card {
+  background-color: #2a1b3d; /* dark purple card */
+  padding: 15px;
+  border-radius: 12px;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+/* Lists */
+ul {
+  margin-top: 20px;
+  padding: 0;
+  list-style: none;
+}
+
+li {
+  background-color: #2a1b3d; /* dark purple list items */
+  padding: 10px;
+  border-radius: 10px;
+  margin-bottom: 8px;
+}
