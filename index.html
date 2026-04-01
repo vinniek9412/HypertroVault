@@ -1,41 +1,44 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>HypertroVault</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
+  <header>
+    <h1 class="neon">HypertroVault</h1>
+    <p id="greeting">Welcome, Gym Warrior!</p>
+  </header>
 
-  <div class="app">
-
-    <!-- HOME -->
-    <section id="home" class="page active">
-      <h1>HypertroVault</h1>
-
-      <div class="card">
-        <p>Calories Today</p>
-        <strong id="calories">0</strong>
-      </div>
-
-      <div class="card">
-        <p>Protein (g)</p>
-        <strong id="protein">0</strong>
-      </div>
-
-      <div class="card">
-        <p>Weekly Hypertrophy Score</p>
-        <strong id="score">0%</strong>
-      </div>
+  <main>
+    <!-- Daily Info -->
+    <section class="card">
+      <h2>Today's Goals</h2>
+      <p>Calories: <span id="calories">2500</span> kcal</p>
+      <p>Protein: <span id="protein">180</span> g</p>
+      <p>Weight: <input type="number" id="weight" placeholder="lbs"></p>
+      <p>Height: 
+        <input type="number" id="heightFeet" placeholder="ft" style="width:50px"> ft 
+        <input type="number" id="heightInches" placeholder="in" style="width:50px"> in
+      </p>
+      <p>BMI: <span id="bmi">-</span></p>
+      <button onclick="calculateBMI()">Calculate BMI</button>
     </section>
 
-    <!-- WORKOUTS -->
-    <section id="workouts" class="page">
-      <h2>Log Workout</h2>
+    <!-- Weekly Hypertrophy Score -->
+    <section class="card">
+      <h2>Weekly Hypertrophy Score</h2>
+      <p id="hypertrophyScore">0 / 7</p>
+      <button onclick="incrementScore()">Log Today’s Workout</button>
+    </section>
 
-      <select id="muscle">
+    <!-- Workout Log -->
+    <section class="card">
+      <h2>Workout Log</h2>
+      <select id="workoutType">
+        <option value="">Select Workout</option>
         <option>Arms</option>
         <option>Back</option>
         <option>Chest</option>
@@ -43,63 +46,46 @@
         <option>Abs</option>
         <option>Cardio</option>
       </select>
-
-      <input id="sets" type="number" placeholder="Sets">
-      <input id="reps" type="number" placeholder="Reps">
-      <input id="weight" type="number" placeholder="Weight">
-
-      <button onclick="logWorkout()">Log</button>
-
+      <input type="text" id="workoutNote" placeholder="Notes...">
+      <button onclick="logWorkout()">Log Workout</button>
       <ul id="workoutList"></ul>
     </section>
 
-    <!-- FOOD -->
-    <section id="food" class="page">
+    <!-- Food Log -->
+    <section class="card">
       <h2>Food Log</h2>
-
-      <input id="foodCalories" type="number" placeholder="Calories">
-      <input id="foodProtein" type="number" placeholder="Protein (g)">
-      <button onclick="logFood()">Add</button>
-
+      <input type="text" id="foodItem" placeholder="Food Name">
+      <input type="number" id="foodCals" placeholder="Calories">
+      <input type="number" id="foodProtein" placeholder="Protein (g)">
+      <button onclick="logFood()">Add Food</button>
       <ul id="foodList"></ul>
     </section>
 
-    <!-- TIPS -->
-    <section id="tips" class="page">
+    <!-- Tips & AI Suggestions -->
+    <section class="card">
       <h2>Hypertrophy Tips</h2>
       <ul>
-        <li>Low volume / high intensity builds strength faster</li>
-        <li>High volume / low intensity builds endurance & hypertrophy</li>
-        <li>Recovery days are essential for growth</li>
+        <li>Progressive overload is king.</li>
+        <li>Train all major muscle groups weekly.</li>
+        <li>Protein intake is critical (1g per lb bodyweight).</li>
+        <li>Recovery > Training. Sleep 7–9 hours.</li>
+        <li>Track your lifts and aim to increase weight weekly.</li>
+      </ul>
+
+      <h2>AI Coach Suggestions</h2>
+      <ul id="aiTips">
+        <li>Remember to warm up for 5–10 minutes before lifting.</li>
+        <li>Focus on proper form over heavier weight.</li>
+        <li>Incorporate at least 2 mobility exercises daily.</li>
       </ul>
     </section>
-
-    <!-- COACH -->
-    <section id="coach" class="page">
-      <h2>AI Coach Suggestions</h2>
-      <div>
-        <input id="age" type="number" placeholder="Age">
-        <input id="weight" type="number" placeholder="Weight (kg)">
-        <input id="height" type="number" placeholder="Height (cm)">
-        <select id="gender">
-          <option>Male</option>
-          <option>Female</option>
-        </select>
-        <button onclick="runCoach()">Analyze</button>
-      </div>
-      <ul id="coachSuggestions"></ul>
-    </section>
-
-    <!-- Bottom Navigation -->
-    <nav class="bottom-nav">
-      <button onclick="showPage('home')">Home</button>
-      <button onclick="showPage('workouts')">Workouts</button>
-      <button onclick="showPage('food')">Food</button>
-      <button onclick="showPage('tips')">Tips</button>
-      <button onclick="showPage('coach')">Coach</button>
-    </nav>
-
-  </div>
+<div class="card">
+  <h3>Daily Motivation</h3>
+  <p id="dailyQuote">Your quote will appear here</p>
+  <button id="refreshQuote">Refresh Quote</button>
+</div>
+</section>
+  </main>
 
   <script src="app.js"></script>
 </body>
