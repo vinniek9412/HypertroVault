@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>HypertroVault</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <div class="app">
+
+    <!-- HOME -->
+    <section id="home" class="page active">
+      <h1>HypertroVault</h1>
+
+      <div class="card">
+        <p>Calories Today</p>
+        <strong id="calories">0</strong>
+      </div>
+
+      <div class="card">
+        <p>Protein (g)</p>
+        <strong id="protein">0</strong>
+      </div>
+
+      <div class="card">
+        <p>Weekly Hypertrophy Score</p>
+        <strong id="score">0%</strong>
+      </div>
+    </section>
+
+    <!-- WORKOUTS -->
+    <section id="workouts" class="page">
+      <h2>Log Workout</h2>
+
+      <select id="muscle">
+        <option>Arms</option>
+        <option>Back</option>
+        <option>Chest</option>
+        <option>Legs</option>
+        <option>Abs</option>
+        <option>Cardio</option>
+      </select>
+
+      <input id="sets" type="number" placeholder="Sets">
+      <input id="reps" type="number" placeholder="Reps">
+      <input id="weight" type="number" placeholder="Weight">
+
+      <button onclick="logWorkout()">Log</button>
+
+      <ul id="workoutList"></ul>
+    </section>
+
+    <!-- FOOD -->
+    <section id="food" class="page">
+      <h2>Food Log</h2>
+
+      <input id="foodCalories" type="number" placeholder="Calories">
+      <input id="foodProtein" type="number" placeholder="Protein (g)">
+      <button onclick="logFood()">Add</button>
+
+      <ul id="foodList"></ul>
+    </section>
+
+    <!-- TIPS -->
+    <section id="tips" class="page">
+      <h2>Hypertrophy Tips</h2>
+      <ul>
+        <li>Low volume / high intensity builds strength faster</li>
+        <li>High volume / low intensity builds endurance & hypertrophy</li>
+        <li>Recovery days are essential for growth</li>
+      </ul>
+    </section>
+
+    <!-- COACH -->
+    <section id="coach" class="page">
+      <h2>AI Coach Suggestions</h2>
+      <div>
+        <input id="age" type="number" placeholder="Age">
+        <input id="weight" type="number" placeholder="Weight (kg)">
+        <input id="height" type="number" placeholder="Height (cm)">
+        <select id="gender">
+          <option>Male</option>
+          <option>Female</option>
+        </select>
+        <button onclick="runCoach()">Analyze</button>
+      </div>
+      <ul id="coachSuggestions"></ul>
+    </section>
+
+    <!-- Bottom Navigation -->
+    <nav class="bottom-nav">
+      <button onclick="showPage('home')">Home</button>
+      <button onclick="showPage('workouts')">Workouts</button>
+      <button onclick="showPage('food')">Food</button>
+      <button onclick="showPage('tips')">Tips</button>
+      <button onclick="showPage('coach')">Coach</button>
+    </nav>
+
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
