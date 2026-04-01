@@ -1,61 +1,117 @@
-/* Base app styling */
+/* General */
 body {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont;
-  background-color: #1b0d2c; /* deep dark purple */
-  color: #f0f0f0; /* light text */
-  padding: 20px;
   margin: 0;
+  font-family: Arial, sans-serif;
+  background: #111;
+  color: #fff;
 }
 
-/* Headings */
-h1, h2 {
+header {
   text-align: center;
-  color: #f0f0f0;
+  padding: 20px;
 }
 
-/* Inputs */
-input, select {
-  width: 100%;
-  padding: 12px;
-  margin-top: 10px;
-  border-radius: 10px;
-  border: none;
-  background-color: #2a1b3d; /* dark purple input */
-  color: #f0f0f0;
+/* Neon Animated Text */
+.neon {
+  font-weight: bold;
+  background: linear-gradient(270deg, #a855f7, #6ee7b7, #facc15, #a855f7);
+  background-size: 800% 800%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: neonMove 5s linear infinite, flicker 2s infinite alternate;
+  text-shadow:
+    0 0 5px #a855f7,
+    0 0 10px #a855f7,
+    0 0 20px #a855f7,
+    0 0 40px #a855f7;
 }
 
-/* Buttons */
-button {
-  width: 100%;
-  padding: 12px;
-  margin-top: 12px;
-  border-radius: 12px;
-  border: none;
-  background-color: #8b00ff; /* neon purple button */
-  color: white;
-  font-size: 16px;
-  cursor: pointer;
+@keyframes neonMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
-/* Cards (home stats) */
+@keyframes flicker {
+  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+    opacity: 1;
+    text-shadow: 
+      0 0 5px #a855f7,
+      0 0 10px #a855f7,
+      0 0 20px #a855f7,
+      0 0 40px #a855f7;
+  }
+  20%, 22%, 24%, 55% {
+    opacity: 0.6;
+    text-shadow: none;
+  }
+}
+
+/* Cards */
 .card {
-  background-color: #2a1b3d; /* dark purple card */
-  padding: 15px;
-  border-radius: 12px;
-  margin-bottom: 15px;
-  text-align: center;
+  background: #1a1a1a;
+  margin: 15px;
+  padding: 20px;
+  border-radius: 10px;
+  border: 1px solid #a855f7;
+  box-shadow: 0 0 15px rgba(168, 85, 247, 0.5);
+}
+
+/* Inputs & Buttons */
+input, select, button {
+  margin: 5px 0;
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid #6b21a8;
+  background: #1a1a1a;
+  color: #fff;
+  outline: none;
+  font-size: 14px;
+}
+
+input::placeholder {
+  color: #aaa;
+}
+
+button {
+  cursor: pointer;
+  transition: all 0.3s;
+  background: #111;
+}
+
+button:hover {
+  color: #fff;
+  text-shadow: 0 0 10px #a855f7, 0 0 20px #a855f7;
+  border-color: #a855f7;
+}
+
+/* Refresh Quote Button */
+#refreshQuote {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 6px 12px;
+  border-radius: 5px;
+  border: 1px solid #a855f7;
+  background: #111;
+  color: #fff;
+  font-weight: bold;
+}
+
+#refreshQuote:hover {
+  color: #fff;
+  text-shadow: 0 0 10px #a855f7, 0 0 20px #a855f7;
+  border-color: #f0f;
 }
 
 /* Lists */
 ul {
-  margin-top: 20px;
-  padding: 0;
-  list-style: none;
+  list-style-type: none;
+  padding-left: 0;
 }
 
-li {
-  background-color: #2a1b3d; /* dark purple list items */
-  padding: 10px;
-  border-radius: 10px;
-  margin-bottom: 8px;
+/* Smooth Card Glow Animation */
+.card:hover {
+  box-shadow: 0 0 25px rgba(168, 85, 247, 0.8);
+  transform: translateY(-2px);
+  transition: all 0.3s ease-in-out;
 }
